@@ -1,68 +1,65 @@
 package domain;
 
-import domain.Empresa;
-
 public class Produto {
-	private Integer id;
-	private String nome;
-	private Integer quantidade;
-	private Double preco;
-	private Empresa empresa;
+    private Integer id;
+    private String nome;
+    private Integer quantidade;
+    private Double preco;
+    private Empresa empresa;
 
-	public Produto(Integer id,String nome, Integer quantidade, Double preco, Empresa empresa) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.quantidade = quantidade;
-		this.preco = preco;
-		this.empresa = empresa;
-	}
+    public Produto(Integer id, String nome, Integer quantidade, Double preco, Empresa empresa) {
+        super();
+        this.id = id;
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.preco = preco;
+        this.empresa = empresa;
+    }
 
-	public Produto() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
+    public Produto() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
-	public Integer getId() {
-		return id;
-	}
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Empresa getEmpresa() {
-		return empresa;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setEmpresa(Empresa empresa) {
-		this.empresa = empresa;
-	}
+    public Empresa getEmpresa() {
+        return empresa;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public Integer getQuantidade() {
-		return quantidade;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setQuantidade(Integer quantidade) {
-		this.quantidade = quantidade;
-	}
+    public Integer getQuantidade() {
+        return quantidade;
+    }
 
-	public Double getPreco() {
-		return preco;
-	}
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 
-	public void setPreco(Double preco) {
-		this.preco = preco;
-	}
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
 
 }
