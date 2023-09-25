@@ -1,22 +1,18 @@
 package domain;
 
-import domain.Cliente;
-import domain.Empresa;
-import domain.Produto;
-
 import java.util.List;
 
 public class Venda {
-	private Integer código;
+	private Integer codigo;
 	private List<Produto> itens;
 	private Double valor;
 	private Double comissaoSistema;
 	private Empresa empresa;
 	private Cliente cliente;
 
-	public Venda(Integer código, List<Produto> itens, Double valor, Double comissaoSistema, Empresa empresa, Cliente cliente) {
+	public Venda(Integer codigo, List<Produto> itens, Double valor, Double comissaoSistema, Empresa empresa, Cliente cliente) {
 		super();
-		this.código = código;
+		this.codigo = codigo;
 		this.itens = itens;
 		this.valor = valor;
 		this.comissaoSistema = comissaoSistema;
@@ -28,8 +24,8 @@ public class Venda {
 		super();
 	}
 
-	public Integer getCódigo() {
-		return código;
+	public Integer getCodigo() {
+		return codigo;
 	}
 	
 	
@@ -50,8 +46,8 @@ public class Venda {
 		this.cliente = cliente;
 	}
 
-	public void setCódigo(Integer código) {
-		this.código = código;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	public List<Produto> getItens() {
