@@ -5,11 +5,14 @@ import domain.*;
 import service.LoginService;
 import service.VendaService;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Main {
+
+	private static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
 	private static Scanner sc = new Scanner(System.in);
 
@@ -40,16 +43,16 @@ public class Main {
 								System.out.println("Venda de código: " + venda.getCodigo() + " no CPF "
 										+ venda.getCliente().getCpf() + ": ");
 								venda.getItens().stream().forEach(x -> {
-									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
+									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + decimalFormat.format(x.getPreco()));
 								});
-								System.out.println("Total Venda: R$ " + venda.getValor());
-								System.out.println("Total Taxa a ser paga: R$ " + venda.getComissaoSistema());
-								System.out.println("Total Líquido  para empresa: " + venda.getValorLiquidoEmpresa());
+								System.out.println("Total Venda: R$ " + decimalFormat.format(venda.getValor()));
+								System.out.println("Total Taxa a ser paga: R$ " + decimalFormat.format(venda.getComissaoSistema()));
+								System.out.println("Total Líquido  para empresa: R$" + decimalFormat.format(venda.getValorLiquidoEmpresa()));
 								System.out.println("************************************************************");
 							}
 
 						});
-						System.out.println("Saldo Empresa: " + usuarioLogado.getEmpresa().getSaldo());
+						System.out.println("Saldo Empresa: R$" + decimalFormat.format(usuarioLogado.getEmpresa().getSaldo()));
 						System.out.println("************************************************************");
 
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
@@ -64,7 +67,7 @@ public class Main {
 								System.out.println("Código: " + produto.getId());
 								System.out.println("Produto: " + produto.getNome());
 								System.out.println("Quantidade em estoque: " + produto.getQuantidade());
-								System.out.println("Valor: R$ " + produto.getPreco());
+								System.out.println("Valor: R$ " + decimalFormat.format(produto.getPreco()));
 								System.out.println("************************************************************");
 							}
 
@@ -99,7 +102,7 @@ public class Main {
 							System.out.println("Escolha os seus produtos: ");
 							produtos.stream().forEach(x -> {
 								if (x.getEmpresa().getId().equals(escolhaEmpresa)) {
-									System.out.println(x.getId() + " - " + x.getNome());
+									System.out.println(x.getId() + " - " + x.getNome() + " - R$" + decimalFormat.format(x.getPreco()));
 								}
 							});
 							System.out.println("0 - Finalizar compra");
@@ -113,7 +116,7 @@ public class Main {
 						System.out.println("Resumo da compra: ");
 						carrinho.stream().forEach(x -> {
 							if (x.getEmpresa().getId().equals(escolhaEmpresa)) {
-								System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
+								System.out.println(x.getId() + " - " + x.getNome() + "    R$" + decimalFormat.format(x.getPreco()));
 							}
 						});
 						Empresa empresaEscolhida = empresas.stream().filter(x -> x.getId().equals(escolhaEmpresa))
@@ -122,7 +125,7 @@ public class Main {
 								.filter(x -> x.getUsername().equals(usuarioLogado.getUsername()))
 								.collect(Collectors.toList()).get(0);
 						Venda venda = VendaService.criarVenda(carrinho, empresaEscolhida, clienteLogado, vendas);
-						System.out.println("Total: R$" + venda.getValor());
+						System.out.println("Total: R$" + decimalFormat.format(venda.getValor()));
 						System.out.println("************************************************************");
 						carrinho.clear();
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
@@ -137,9 +140,9 @@ public class Main {
 								System.out.println("Compra de código: " + venda.getCodigo() + " na empresa "
 										+ venda.getEmpresa().getNome() + ": ");
 								venda.getItens().stream().forEach(x -> {
-									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
+									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + decimalFormat.format(x.getPreco()));
 								});
-								System.out.println("Total: R$" + venda.getValor());
+								System.out.println("Total: R$" + decimalFormat.format(venda.getValor()));
 								System.out.println("************************************************************");
 							}
 
