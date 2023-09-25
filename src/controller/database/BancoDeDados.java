@@ -14,8 +14,8 @@ public class BancoDeDados {
         List<Produto> carrinho = new ArrayList<Produto>();
         List<Venda> vendas = new ArrayList<Venda>();
 
-        Empresa empresa = new Empresa(1, "Level Varejo", "53239160000154", 0.05, 0.0);
-        Empresa empresa2 = new Empresa(2, "SafeWay Padaria", "30021423000159", 0.15, 0.0);
+        Empresa empresa = new Empresa(1, "SafeWay Padaria", "30021423000159", 0.15, 0.0);
+        Empresa empresa2 = new Empresa(2, "Level Varejo", "53239160000154", 0.05, 0.0);
         Empresa empresa3 = new Empresa(3, "SafeWay Restaurante", "41361511000116", 0.20, 0.0);
 
         Produto produto = new Produto(1, "Pão Francês", 5, 3.50, empresa);
