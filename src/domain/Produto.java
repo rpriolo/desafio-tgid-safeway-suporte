@@ -1,3 +1,6 @@
+package domain;
+
+import domain.Empresa;
 
 public class Produto {
 	private Integer id;

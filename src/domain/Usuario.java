@@ -1,3 +1,7 @@
+package domain;
+
+import domain.Cliente;
+import domain.Empresa;
 
 public class Usuario {
 	private String username;

@@ -1,3 +1,9 @@
+package domain;
+
+import domain.Cliente;
+import domain.Empresa;
+import domain.Produto;
+
 import java.util.List;
 
 public class Venda {

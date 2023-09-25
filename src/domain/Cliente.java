@@ -1,3 +1,4 @@
+package domain;
 
 public class Cliente {
 	private String cpf;
