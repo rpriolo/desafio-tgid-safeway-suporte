@@ -47,7 +47,8 @@ public class Main {
 								});
 								System.out.println("Total Venda: R$ " + decimalFormat.format(venda.getValor()));
 								System.out.println("Total Taxa a ser paga: R$ " + decimalFormat.format(venda.getComissaoSistema()));
-								System.out.println("Total Líquido  para empresa: R$" + decimalFormat.format(venda.getValorLiquidoEmpresa()));
+								Double valorLiquido = venda.getValor() - venda.getComissaoSistema();
+								System.out.println("Total Líquido  para empresa: R$" + decimalFormat.format(valorLiquido));
 								System.out.println("************************************************************");
 							}
 

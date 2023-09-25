@@ -7,17 +7,15 @@ public class Venda {
 	private List<Produto> itens;
 	private Double valor;
 	private Double comissaoSistema;
-	private Double valorLiquidoEmpresa;
 	private Empresa empresa;
 	private Cliente cliente;
 
-	public Venda(Integer codigo, List<Produto> itens, Double valor, Double comissaoSistema, Double valorLiquidoEmpresa, Empresa empresa, Cliente cliente) {
+	public Venda(Integer codigo, List<Produto> itens, Double valor, Double comissaoSistema, Empresa empresa, Cliente cliente) {
 		super();
 		this.codigo = codigo;
 		this.itens = itens;
 		this.valor = valor;
 		this.comissaoSistema = comissaoSistema;
-		this.valorLiquidoEmpresa = this.valor - this.comissaoSistema;
 		this.empresa = empresa;
 		this.cliente = cliente;
 	}
@@ -74,13 +72,5 @@ public class Venda {
 
 	public void setComissaoSistema(Double comissaoSistema) {
 		this.comissaoSistema = comissaoSistema;
-	}
-
-	public Double getValorLiquidoEmpresa() {
-		return valorLiquidoEmpresa;
-	}
-
-	public void setValorLiquidoEmpresa(Double valorLiquidoEmpresa) {
-		this.valorLiquidoEmpresa = valorLiquidoEmpresa;
 	}
 }
