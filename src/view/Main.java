@@ -22,14 +22,14 @@ public class Main {
 
 		Usuario usuarioLogado = LoginService.realizarLogin(usuarios);
 
-				System.out.println("Escolha uma opção para iniciar");
-				if (usuarioLogado.IsEmpresa()) {
-					System.out.println("1 - Listar vendas");
-					System.out.println("2 - Ver produtos");
-					System.out.println("0 - Deslogar");
-					Integer escolha = sc.nextInt();
+		if (usuarioLogado.IsEmpresa()) {
+				System.out.println("1 - Listar vendas");
+				System.out.println("2 - Ver produtos");
+				System.out.println("3 - Deslogar");
+				System.out.println("0 - Sair");
+				Integer escolha = sc.nextInt();
 
-					switch (escolha) {
+				switch (escolha) {
 					case 1: {
 						System.out.println();
 						System.out.println("************************************************************");
@@ -43,9 +43,8 @@ public class Main {
 									System.out.println(x.getId() + " - " + x.getNome() + "    R$" + x.getPreco());
 								});
 								System.out.println("Total Venda: R$ " + venda.getValor());
-								System.out.println("Total Taxa a ser paga: R$" + venda.getComissaoSistema());
-								System.out.println("Total Líquido  para empresa"
-										+ (venda.getValor() - venda.getComissaoSistema()));
+								System.out.println("Total Taxa a ser paga: R$ " + venda.getComissaoSistema());
+								System.out.println("Total Líquido  para empresa: " + venda.getValorLiquidoEmpresa());
 								System.out.println("************************************************************");
 							}
 
@@ -75,16 +74,18 @@ public class Main {
 
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
 					}
-					case 0: {
+					case 3:
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
-
+					case 0: {
+						break;
 					}
-					}
+				}
 
-				} else {
+			} else if (usuarioLogado.IsCliente()) {
 					System.out.println("1 - Realizar Compras");
 					System.out.println("2 - Ver Compras");
-					System.out.println("0 - Deslogar");
+					System.out.println("3 - Deslogar");
+					System.out.println("0 - Sair");
 					Integer escolha = sc.nextInt();
 					switch (escolha) {
 					case 1: {
@@ -146,11 +147,12 @@ public class Main {
 
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
 					}
-					case 0: {
+					case 3: {
 						executar(usuarios, clientes, empresas, produtos, carrinho, vendas);
-
 					}
-
+					case 0: {
+						break;
+					}
 				}
 		}
 	}
